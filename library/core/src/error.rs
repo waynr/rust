@@ -132,7 +132,7 @@ pub trait Error: Debug + Display {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     /// use core::fmt;
-    /// use core::error::{request_ref, Request};
+    /// use std::error::{request_ref, Request};
     ///
     /// #[derive(Debug)]
     /// enum MyLittleTeaPot {
@@ -363,7 +363,7 @@ impl dyn Error {
 /// # #![feature(error_generic_member_access)]
 /// # #![feature(error_in_core)]
 /// use std::error::Error;
-/// use core::error::request_value;
+/// use std::error::request_value;
 ///
 /// fn get_string(err: &impl Error) -> String {
 ///     request_value::<String>(err).unwrap()
@@ -386,8 +386,8 @@ where
 /// ```rust
 /// # #![feature(error_generic_member_access)]
 /// # #![feature(error_in_core)]
-/// use core::error::Error;
-/// use core::error::request_ref;
+/// use std::error::Error;
+/// use std::error::request_ref;
 ///
 /// fn get_str(err: &impl Error) -> &str {
 ///     request_ref::<str>(err).unwrap()
@@ -418,7 +418,7 @@ where
 /// `Request` supports generic, type-driven access to data. It's use is currently restricted to the
 /// standard library in cases where trait authors wish to allow trait implementors to share generic
 /// information across trait boundaries. The motivating and prototypical use case is
-/// `core::error::Error` which would otherwise require a method per concrete type (eg.
+/// `std::error::Error` which would otherwise require a method per concrete type (eg.
 /// `std::backtrace::Backtrace` instance that implementors want to expose to users).
 ///
 /// # Data flow
@@ -459,8 +459,8 @@ where
 /// #![feature(error_generic_member_access)]
 /// #![feature(error_in_core)]
 /// use core::fmt;
-/// use core::error::Request;
-/// use core::error::request_ref;
+/// use std::error::Request;
+/// use std::error::request_ref;
 ///
 /// #[derive(Debug)]
 /// enum MyLittleTeaPot {
@@ -530,7 +530,7 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
+    /// use std::error::Request;
     ///
     /// #[derive(Debug)]
     /// struct SomeConcreteType { field: u8 }
@@ -565,7 +565,7 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
+    /// use std::error::Request;
     ///
     /// #[derive(Debug)]
     /// struct SomeConcreteType { field: String }
@@ -601,7 +601,7 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
+    /// use std::error::Request;
     ///
     /// #[derive(Debug)]
     /// struct SomeConcreteType { field: String }
@@ -634,7 +634,7 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
+    /// use std::error::Request;
     ///
     /// #[derive(Debug)]
     /// struct SomeConcreteType { business: String, party: String }
@@ -701,8 +701,8 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
-    /// use core::error::request_value;
+    /// use std::error::Request;
+    /// use std::error::request_value;
     ///
     /// #[derive(Debug)]
     /// struct Parent(Option<u8>);
@@ -789,8 +789,8 @@ impl<'a> Request<'a> {
     /// #![feature(error_generic_member_access)]
     /// #![feature(error_in_core)]
     ///
-    /// use core::error::Request;
-    /// use core::error::request_ref;
+    /// use std::error::Request;
+    /// use std::error::request_ref;
     ///
     /// #[derive(Debug)]
     /// struct Parent(Option<String>);
